@@ -3,6 +3,7 @@ package com.serenity.template.web.utils;
 import com.serenity.template.web.utils.constants.GenericConstants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -36,6 +37,7 @@ public class DriverManager {
     }
 
     private static WebDriver getChromeDriver() {
+        WebDriverManager.chromedriver().clearDriverCache().setup();
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments(
                 "--incognito",
@@ -45,5 +47,15 @@ public class DriverManager {
         );
 
         return WebDriverManager.chromedriver().capabilities(chromeOptions).create();
+    }
+    private static WebDriver getFirefoxDriver() {
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        firefoxOptions.addArguments(
+                "--incognito",
+                "--disable-infobars",
+                "enable-automation",
+                "--disable-browser-side-navigation"
+        );
+        return WebDriverManager.firefoxdriver().capabilities(firefoxOptions).create();
     }
 }

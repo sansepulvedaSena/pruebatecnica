@@ -1,5 +1,6 @@
 package com.serenity.template.web.tasks;
 
+import com.serenity.template.web.userinterfaces.Cart;
 import com.serenity.template.web.userinterfaces.Landing;
 import io.cucumber.java.jv.Lan;
 import net.serenitybdd.screenplay.Actor;
@@ -12,7 +13,7 @@ public class AddToCart implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(Click.on(Landing.SELECT_CATEGORY), Click.on(Landing.PRODUCT), Switch.toAlert().andAccept());
+        actor.attemptsTo(Click.on(Landing.SELECT_CATEGORY), Click.on(Landing.PRODUCT), Click.on(Cart.ADD_PRODUCT), Switch.toAlert().andAccept());
 
     }
 
