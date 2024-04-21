@@ -21,10 +21,13 @@ public class AddToCart implements Task {
                 WaitUntil.the(Landing.PRODUCT, WebElementStateMatchers.isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(Landing.PRODUCT),
                 WaitUntil.the(Cart.PRODUCT_NAME, WebElementStateMatchers.isVisible()).forNoMoreThan(10).seconds());
-        SerenitySession.set("product",Cart.PRODUCT_NAME.resolveFor(actor).getText());
-        actor.attemptsTo(Click.on(Cart.ADD_PRODUCT));
-        GenericUtils.waitSeconds(1);
-        actor.attemptsTo(Switch.toAlert().andAccept(),Click.on(Cart.GO_TO_CART),
+                SerenitySession.set("product", Cart.PRODUCT_NAME.resolveFor(actor).getText());
+        actor.attemptsTo(
+                Click.on(Cart.ADD_PRODUCT));
+                GenericUtils.waitSeconds(1);
+        actor.attemptsTo(
+                Switch.toAlert().andAccept(),
+                Click.on(Cart.GO_TO_CART),
                 WaitUntil.the(InCart.PRODUCT_TITLE, WebElementStateMatchers.isVisible()).forNoMoreThan(10).seconds());
     }
 

@@ -21,11 +21,11 @@ public class DeleteFromCart implements Task {
                 Click.on(Landing.PRODUCT),
                 WaitUntil.the(Cart.PRODUCT_NAME, WebElementStateMatchers.isVisible()).forNoMoreThan(10).seconds());
         actor.attemptsTo(Click.on(Cart.ADD_PRODUCT));
-        GenericUtils.waitSeconds(1);
+                 GenericUtils.waitSeconds(1);
         actor.attemptsTo(Switch.toAlert().andAccept(),Click.on(Cart.GO_TO_CART),
                 WaitUntil.the(InCart.DELETE_PRODUCT, WebElementStateMatchers.isVisible()).forNoMoreThan(10).seconds());
                 actor.attemptsTo(Click.on(InCart.DELETE_PRODUCT),
-        WaitUntil.the(Cart.TOTAL_LBL, WebElementStateMatchers.isNotVisible()).forNoMoreThan(10).seconds());
+                WaitUntil.the(Cart.TOTAL_LBL, WebElementStateMatchers.isNotVisible()).forNoMoreThan(10).seconds());
     }
 
     public static DeleteFromCart inPage() {
