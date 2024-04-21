@@ -49,11 +49,11 @@ public class DriverManager {
         return WebDriverManager.chromedriver().capabilities(chromeOptions).create();
     }
     private static WebDriver getFirefoxDriver() {
+        WebDriverManager.firefoxdriver().clearDriverCache().setup();
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.addArguments(
                 "--incognito",
                 "--disable-infobars",
-                "enable-automation",
                 "--disable-browser-side-navigation"
         );
         return WebDriverManager.firefoxdriver().capabilities(firefoxOptions).create();
