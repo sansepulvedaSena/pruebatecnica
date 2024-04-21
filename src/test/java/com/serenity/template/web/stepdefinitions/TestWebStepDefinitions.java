@@ -1,12 +1,7 @@
 package com.serenity.template.web.stepdefinitions;
 
-import com.serenity.template.web.questions.AddProductToCart;
-import com.serenity.template.web.questions.CheckProductInCart;
-import com.serenity.template.web.questions.ValidateModal;
-import com.serenity.template.web.tasks.AddToCart;
-import com.serenity.template.web.tasks.DeleteFromCart;
-import com.serenity.template.web.tasks.FillCartForm;
-import com.serenity.template.web.tasks.SendFormWithoutData;
+import com.serenity.template.web.questions.*;
+import com.serenity.template.web.tasks.*;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -29,6 +24,7 @@ public class TestWebStepDefinitions {
     public void test3() {
         OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(AddProductToCart.validateInPage()));
     }
+
     @When("I delete a product in the cart")
     public void test4() {
         OnStage.withCurrentActor(DeleteFromCart.inPage());
@@ -43,6 +39,7 @@ public class TestWebStepDefinitions {
     public void test6() {
         OnStage.withCurrentActor(FillCartForm.inPage());
     }
+
     @Then("I validate the confirmation modal")
     public void test7() {
         OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(ValidateModal.inPage()));
@@ -55,7 +52,21 @@ public class TestWebStepDefinitions {
 
     @Then("I validate the alert")
     public void test9() {
-    //    OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(ValidateModal.inPage()));
     }
+
+    @And("I go to the cart after the purchase")
+    public void test10() {
+        OnStage.withCurrentActor(GoToCartAfterPurchase.inPage());
+    }
+
+    @Then("I validate the empty cart")
+    public void test11() {
+        OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(CheckEmptyCartAfterPurchase.isNotVisible()));
+    }
+    @When("I add some products to cart")
+    public void test12() {
+        OnStage.withCurrentActor(AddSomeProductsToCart.inPage());
+    }
+
 
 }

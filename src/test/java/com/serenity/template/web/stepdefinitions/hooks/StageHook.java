@@ -4,6 +4,7 @@ import com.serenity.template.web.utils.DriverManager;
 import com.serenity.template.web.utils.SerenitySession;
 import com.serenity.template.web.utils.constants.Defaults;
 import com.serenity.template.web.utils.constants.GenericConstants;
+import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;
 import io.cucumber.java.az.Ohalda;
@@ -25,7 +26,7 @@ public class StageHook {
         SerenitySession.createActorForWeb("https://www.demoblaze.com/", Defaults.ACTOR_NAME);
     }
 
-    @AfterAll(order = 0)
+    @After
     public static void stopSession() {
         DriverManager.stop();
     }
