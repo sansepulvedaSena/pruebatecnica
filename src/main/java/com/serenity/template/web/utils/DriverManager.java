@@ -14,8 +14,8 @@ public class DriverManager {
 
     public static WebDriver start(String url) {
         switch (ReadFiles.getConfig(GenericConstants.BROWSER)) {
-            case GenericConstants.CHROME:
-                driver = getChromeDriver();
+            case GenericConstants.FIREFOX:
+                driver = getFirefoxDriver();
                 driver.get(url);
                 driver.manage().window().maximize();
                 return driver;

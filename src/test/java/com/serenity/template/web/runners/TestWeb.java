@@ -9,6 +9,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 @CucumberOptions(
         glue = "com.serenity.template.web.stepdefinitions",
         features = "src/test/resources/features/test_web.feature",
+        tags = "@DeleteProduct",
         snippets = SnippetType.CAMELCASE)
 public class TestWeb {
 }

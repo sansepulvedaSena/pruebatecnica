@@ -1,6 +1,5 @@
 package com.serenity.template.web.questions;
 
-import com.serenity.template.web.userinterfaces.InCart;
 import com.serenity.template.web.userinterfaces.OrderForm;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;

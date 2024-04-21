@@ -3,16 +3,10 @@ package com.serenity.template.web.stepdefinitions.hooks;
 import com.serenity.template.web.utils.DriverManager;
 import com.serenity.template.web.utils.SerenitySession;
 import com.serenity.template.web.utils.constants.Defaults;
-import com.serenity.template.web.utils.constants.GenericConstants;
 import io.cucumber.java.After;
-import io.cucumber.java.AfterAll;
+import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
-import io.cucumber.java.az.Ohalda;
-import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
-import net.serenitybdd.screenplay.actors.Cast;
-import net.serenitybdd.screenplay.actors.OnStage;
-import net.serenitybdd.screenplay.actors.Stage;
-import org.junit.Before;
+
 
 public class StageHook {
 
@@ -21,7 +15,7 @@ public class StageHook {
         SerenitySession.createActor(Defaults.ACTOR_NAME);
     }
 
-    @BeforeAll
+    @Before(order=1)
     public static void startSession() {
         SerenitySession.createActorForWeb("https://www.demoblaze.com/", Defaults.ACTOR_NAME);
     }

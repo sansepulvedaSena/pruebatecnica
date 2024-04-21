@@ -12,7 +12,7 @@ public class GoToCartAfterPurchase implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
 
-        GenericUtils.waitSeconds(2);
+        GenericUtils.waitSeconds(1.5);
         actor.attemptsTo(
                 Click.on(OrderForm.CONFIRM_PURCHASE_BTN)
         );

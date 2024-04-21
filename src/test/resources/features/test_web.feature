@@ -31,3 +31,9 @@ Feature: Add a product to the cart
     And I fill the purchase form
     And I go to the cart after the purchase
     Then I validate the empty cart
+
+  @focus
+  @ValueSumatory
+  Scenario: Test web page with chrome
+    When I add some products to cart
+    Then I validate the sumatory of the values
